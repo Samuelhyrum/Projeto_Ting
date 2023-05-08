@@ -33,5 +33,10 @@ def remove(instance: Queue):
         sys.stdout.write(f"Dados do arquivo removido: {file_info}\n")
 
 
-def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+def file_metadata(instance: Queue, position):
+    try:
+        archive = instance.search(position)
+    except IndexError:
+        sys.stderr.write("Posição inválida")
+    else:
+        sys.stdout.write(str(archive))
