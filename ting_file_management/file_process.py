@@ -23,8 +23,14 @@ def process(path_file, instance: Queue):
         print(f"Arquivo {path_file} já processado anteriormente.")
 
 
-def remove(instance):
-    """Aqui irá sua implementação"""
+def remove(instance: Queue):
+    if len(instance) == 0:
+        sys.stdout.write("Não há elementos\n")
+    else:
+        file_info = instance.dequeue()
+        path_file = file_info["nome_do_arquivo"]
+        sys.stdout.write(f"Arquivo {path_file} removido com sucesso\n")
+        sys.stdout.write(f"Dados do arquivo removido: {file_info}\n")
 
 
 def file_metadata(instance, position):
